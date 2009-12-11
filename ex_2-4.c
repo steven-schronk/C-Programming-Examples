@@ -2,6 +2,8 @@
 
 Delete each char in string test that matches any char in string key.
 
+Returns indication of found match
+
 */
 
 #include <stdio.h>
@@ -25,7 +27,7 @@ int squeeze(char test[], char key[])
 		if(x == 1) { putchar(test[k]); }
 	}
 	printf("\n");
-	return 0;
+	return x;
 }
 
 int main()
