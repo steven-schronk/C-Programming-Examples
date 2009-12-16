@@ -10,6 +10,16 @@
 int getop(char[]);
 void push(double);
 double pop(void);
+void print_stack(void);
+void reverse(void);
+int getch(void);
+void ungetch(int);
+
+
+char buf[BUFSIZE];
+int bufp = 0;
+int sp = 0;
+double val[MAXVAL];
 
 int main()
 {
@@ -23,6 +33,16 @@ int main()
 		{
 			case NUMBER:
 				push(atof(s));
+				break;
+			case 'S':
+			case 's':
+				printf("Print Top of Stack\n");
+				print_stack();
+				break;
+			case 'R':
+			case 'r':
+				printf("Reverse Stack\n");
+				reverse();
 				break;
 			case '+':
 				push(pop() + pop());
@@ -61,9 +81,6 @@ int main()
 	return 0;
 }
 
-int sp = 0;
-double val[MAXVAL];
-
 /* push f onto value stack */
 void push(double f)
 {
@@ -72,7 +89,6 @@ void push(double f)
 	else
 		printf("error: stack full\n");
 }
-
 
 /* pop and return top value from stack */
 double pop(void)
@@ -86,8 +102,21 @@ double pop(void)
 	}
 }
 
-int getch(void);
-void ungetch(int);
+/* reverse two vales at top of stack */
+void reverse()
+{
+	double temp1, temp2;
+	temp1 = pop();
+	temp2 = pop();
+	push(temp1);
+	push(temp2);
+}
+
+/* print top two values on stack */
+void print_stack()
+{
+	printf("%f\t%f\n", val[sp], val[sp-1]);
+}
 
 /* get next operator or numberic operand */
 int getop(char s[])
@@ -111,9 +140,6 @@ int getop(char s[])
 		ungetch(c);
 	return NUMBER;
 }
-
-char buf[BUFSIZE];
-int bufp = 0;
 
 int getch(void)
 {
