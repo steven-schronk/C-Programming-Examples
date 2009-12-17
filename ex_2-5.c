@@ -22,8 +22,8 @@ int any(char test[], char data[])
 	return -1;
 }
 
-char test[] = "a";
-char data[] = "123bc";
+char test[] = "ax";
+char data[] = "123bcx";
 
 int main()
 {
