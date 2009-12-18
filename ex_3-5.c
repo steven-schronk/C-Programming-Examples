@@ -33,8 +33,10 @@ int itob(int n, char s[], int b)
 {
 	int sign, i = 0;
 
+	//create string of digits used to represent chars
 	char base_chars[] = { "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ" };
 
+	//check that base is neither too high nor too small
 	if(b < 2)
 	{
 		printf("Base must be between 2 and %d.\n", (int)strlen(base_chars)-1);
@@ -47,23 +49,26 @@ int itob(int n, char s[], int b)
 		return -1;
 	}
 
+	// remove sign from number
 	if(n < 0) { n = -n; sign = 1; }
 
+
+	// increment s array and store in that location the modulus of the number -vs- the base
+	// while number divided by base is larger than 0
 	i = 0;
 	do {
 		s[i++] = base_chars[n % b];
 	} while ((n /= b) > 0);
 
-	//print_array(s);
-
+	// add sign from above
 	if(sign == '1') { s[++i] = '-'; }
 	s[i] = '\0';
 
 	reverse(s);
-	//print_array(s);
 	return 1;
 }
 
+// reverse string created (it was created in reverse order)
 void reverse(char s[])
 {
 	int temp, i, j;
@@ -74,23 +79,3 @@ void reverse(char s[])
 		s[j] = temp;
 	}
 }
-
-/*
-create string of digits used to represent chars
-
-check that base is neither too high nor too small
-
-remove sign from number
-
-increment s array and store in that location the modulus of the number -vs- the base
-	while number divided by base is larger than 0
-
-add sign from above
-
-reverse string created as it was created in reverse order
-
-
-
-write helper function to reverse arrays of type char
-
-*/
