@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <ctype.h>
+#include <math.h>
 
 #define MAXOP 100
 #define NUMBER '0'
@@ -34,19 +35,13 @@ int main()
 			case NUMBER:
 				push(atof(s));
 				break;
-			case 'D':
-			case 'd':
-				// printf("Print Top of Stack\n");
+			case '#':
 				dup_stack();
 				break;
-			case 'S':
-			case 's':
-				// printf("Print Top of Stack\n");
+			case '?':
 				print_stack();
 				break;
-			case 'R':
-			case 'r':
-				// printf("Reverse Stack\n");
+			case '~':
 				reverse();
 				break;
 			case '+':
@@ -74,6 +69,24 @@ int main()
 				} else {
 					printf("error: zero divisor\n");
 				}
+				break;
+			case 'c':
+				push(cos(pop()));
+				break;
+			case 'p':
+				push((int)pow(pop(),pop()));
+				break;
+			case 't':
+				push(tan(pop()));
+				break;
+			case 'q': // square root
+				push(sqrt(pop()));
+				break;
+			case 'r':
+				push(rand());
+				break;
+			case 's':
+				push(sin(pop()));
 				break;
 			case '\n':
 				printf("\t%.8g\n", pop());
@@ -130,8 +143,8 @@ void print_stack()
 {
 	if(sp > 0)
 		printf("%f\t%f\n", val[sp], val[sp-1]);
-	else
-		printf("Stack is empty!\n");
+	// else
+		// printf("Stack is empty!\n");
 }
 
 /* get next operator or numberic operand */
