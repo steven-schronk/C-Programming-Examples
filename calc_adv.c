@@ -7,6 +7,7 @@
 #define MAXVAL 100
 #define BUFSIZE 100
 
+void dup_stack(void);
 int getop(char[]);
 void push(double);
 double pop(void);
@@ -14,7 +15,6 @@ void print_stack(void);
 void reverse(void);
 int getch(void);
 void ungetch(int);
-
 
 char buf[BUFSIZE];
 int bufp = 0;
@@ -34,14 +34,19 @@ int main()
 			case NUMBER:
 				push(atof(s));
 				break;
+			case 'D':
+			case 'd':
+				// printf("Print Top of Stack\n");
+				dup_stack();
+				break;
 			case 'S':
 			case 's':
-				printf("Print Top of Stack\n");
+				// printf("Print Top of Stack\n");
 				print_stack();
 				break;
 			case 'R':
 			case 'r':
-				printf("Reverse Stack\n");
+				// printf("Reverse Stack\n");
 				reverse();
 				break;
 			case '+':
@@ -97,10 +102,18 @@ double pop(void)
 		return val[--sp];
 	else
 	{
-		printf("error: stack empty\n");
+		printf("stack empty\n");
 		return 0.0;
 	}
 }
+
+/* duplicate value at top of stack */
+void dup_stack()
+{
+	int temp = pop();
+	push(temp);
+	push(temp);
+}	
 
 /* reverse two vales at top of stack */
 void reverse()
@@ -115,7 +128,10 @@ void reverse()
 /* print top two values on stack */
 void print_stack()
 {
-	printf("%f\t%f\n", val[sp], val[sp-1]);
+	if(sp > 0)
+		printf("%f\t%f\n", val[sp], val[sp-1]);
+	else
+		printf("Stack is empty!\n");
 }
 
 /* get next operator or numberic operand */
