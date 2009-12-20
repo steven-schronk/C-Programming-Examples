@@ -21,6 +21,7 @@ char buf[BUFSIZE];
 int bufp = 0;
 int sp = 0;
 double val[MAXVAL];
+static int ungetchar = '\0';
 
 int main()
 {
@@ -166,7 +167,7 @@ int getop(char s[])
 			;
 	s[i] = '\0';
 	if(c != EOF)
-		ungetch(c);
+		c = ungetchar;
 	return NUMBER;
 }
 
@@ -175,6 +176,7 @@ int getch(void)
 	return (bufp > 0) ? buf[--bufp] : getchar();
 }
 
+/* NO LONGER NEEDED
 void ungetch(int c)
 {
 	if(bufp >= BUFSIZE)
@@ -182,3 +184,4 @@ void ungetch(int c)
 	else
 		buf[bufp++] = c;
 }
+*/
