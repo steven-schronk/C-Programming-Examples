@@ -46,6 +46,29 @@ char *ss_strncat(char *dest, const char *source, size_t n)
         return dest;
 }
 
+/*
+       
+Compares contents of string s1 with contents of s2.
+
+If s1 < s2 returns < 0
+If s1 == s2 returns 0
+If s1 > s2 returns > 0
+
+*/
+int ss_strncmp(const char *s1, const char *s2, size_t n)
+{
+
+        while(--n >= 0 && *s1 != '\0' && *s2 != '\0')
+        {
+
+                if(*s1++ == *s2++) { continue; }
+                if(*s1 > *s2)
+                        return 1;
+                else
+                        return -1;
+        }
+        return 0;
+}
 
 int main()
 {
@@ -81,6 +104,21 @@ int main()
                 strncat(buffer, info, strlen(info));
                 print_array(buffer);
         }
+
+        printf("\n");
+
+        char smaller[] = { "12345" };
+        char bigger[] = { "67890" };
+        int size_ans;
+
+        size_ans = ss_strncmp(smaller, bigger, 3);
+        printf("%d\n", size_ans);
+
+        size_ans = ss_strncmp(bigger, bigger, 3);
+        printf("%d\n", size_ans);
+
+        size_ans = ss_strncmp(bigger, smaller, 3);
+        printf("%d\n", size_ans);
 
 	return 1;
 }
