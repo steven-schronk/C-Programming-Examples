@@ -30,6 +30,23 @@ char *ss_strncpy(char *dest, const char *source, int n)
 	return d;
 }
 
+/*
+
+Appends n chars of src into the end of dest.
+
+If null encountered before n, then copy null and no more.
+
+If n is zero or negative, then function has not effect.
+
+*/
+char *ss_strncat(char *dest, const char *source, size_t n)
+{
+        while(*dest) { ++dest; } // find pointer val for end of string s
+        while((--n >= 0) && (*dest++ = *source++) != '\0');
+        return dest;
+}
+
+
 int main()
 {
 	char source[] = { "Destination after..." };
@@ -55,5 +72,15 @@ int main()
 
 	printf("%p\n", ans);
 	print_array(dest2);
+
+        char info[] = { "Data To Append. " };
+        char buffer[50] = { "Beginning of Buffer. " };
+        int i;
+        for(i = 0; i <= 2; ++i)
+        {       
+                strncat(buffer, info, strlen(info));
+                print_array(buffer);
+        }
+
 	return 1;
 }
