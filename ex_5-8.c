@@ -48,23 +48,6 @@ int main()
 	if(ans)
 		printf("Day: %d\tMonth:%d\n", day, month);
 
-	// just for fun -- print yearday calendar
-	char *months[12] =
-	{
-		"January",
-		"February",
-		"March",
-		"April",
-		"May",
-		"June",
-		"July",
-		"August",
-		"September",
-		"October",
-		"November",
-		"December"
-	};
-
 	int yearday, year = 2009;
 	int leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;	
 
