@@ -21,12 +21,11 @@ int main(void)
 
 int isPrime(int n)
 {
-	int dev = 2;
-	n = n / 2;		/* optimization for algorithm */
-	while(dev < n)
-	{
-		if(n % dev == 0) { return false; }
-		dev++;
-	}
+        int dev;
+
+        for(dev = 2; dev <= n/2; dev++)
+        {
+                if((n % dev) == 0) { return false; }
+        }
 	return true;
 }
