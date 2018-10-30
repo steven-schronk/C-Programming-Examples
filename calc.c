@@ -14,7 +14,7 @@ double pop(void);
 int main()
 {
 	int type;
-	double op2;
+	double operation2;
 	char s[MAXOP];
 
 	while((type = getop(s)) != EOF)
@@ -31,13 +31,13 @@ int main()
 				push(pop() * pop());
 				break;
 			case '-':
-				op2 = pop();
-				push(pop() - op2);
+				operation2 = pop();
+				push(pop() - operation2);
 				break;
 			case '/':
-				op2 = pop();
-				if(op2 != 0.0)
-					push(pop() / op2);
+				operation2 = pop();
+				if(operation2 != 0.0)
+					push(pop() / operation2);
 				else
 					printf("error: zero divisor\n");
 				break;
