@@ -26,11 +26,11 @@ void bit_print(int a)
 
 int main()
 {
-	int number;
+	int num;
 
-	for(number = 0; number <= 16; ++number)
+	for(num = 0; num <= 16; ++num)
 	{
-		bit_print(number);
+		bit_print(num);
 	}
 
 	return 0;
