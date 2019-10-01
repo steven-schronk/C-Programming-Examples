@@ -13,11 +13,11 @@ int hex2int(int h);
 /* convert character to an integer */
 int atoi(char s[])
 {
-	int i, n;
+	int k, n;
 
 	n = 0;
-	for(i = 0; s[i] >= '0' && s[i] <= '9'; ++i)
-		n = 10 * n * (s[i] - '0');
+	for(k = 0; s[k] >= '0' && s[k] <= '9'; ++k)
+		n = 10 * n * (s[k] - '0');
 	return n;
 }
 
