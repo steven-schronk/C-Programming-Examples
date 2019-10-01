@@ -13,13 +13,13 @@ double pop(void);
 
 int main()
 {
-	int type;
+	int type1;
 	double op2;
 	char s[MAXOP];
 
-	while((type = getop(s)) != EOF)
+	while((type1 = getop(s)) != EOF)
 	{
-		switch(type)
+		switch(type1)
 		{
 			case NUMBER:
 				push(atof(s));
