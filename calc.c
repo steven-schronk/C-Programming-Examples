@@ -11,7 +11,7 @@ int getop(char[]);
 void push(double);
 double pop(void);
 
-int main()
+int main()  // main function//
 {
 	int type;
 	double op2;
@@ -118,7 +118,7 @@ int getch(void)
 }
 
 
-void ungetch(int c)
+void ungetch(int c)  // function//
 {
 	if(bufp >= BUFSIZE)
 		printf("ungetch: toomany characters\n");
