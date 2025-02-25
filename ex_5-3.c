@@ -24,7 +24,7 @@ void strcat_old(char s[], char t[])
 /* copy string of chars from t into s */
 void strcopy(char *s, char *t)
 {
-	while(*s++ = *t++);
+	while(((*s++) = (*t++)));
 }
 
 /* pointer version of strcat - add string t to end of string s */

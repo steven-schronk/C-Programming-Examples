@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <limits.h>
 
-main ()
+int main ()
 {
-  int c, i, j, nwhite, nother, maxnum;
+  int c, i, j, maxnum;
   int ndigit[CHAR_MAX] = { 0 };
 
   maxnum = 0;
-  nwhite = nother = 0;
 
   for (i = 0; i < 10; i++)
     ndigit[i] = 0;
@@ -35,6 +34,7 @@ main ()
       for (j = 0; j <= CHAR_MAX; ++j)	// one column for each number
 	{
 	  if (ndigit[j] > 0)	// skip chars not represented in file
+          {
 	    if (ndigit[j] >= maxnum - i)
 	      {
 		putchar ('*');
@@ -43,6 +43,7 @@ main ()
 	      {
 		putchar (' ');
 	      }
+	  }
 	}
     }
 
@@ -72,4 +73,5 @@ main ()
 	}
     }
   printf ("\n");
+  return 0;
 }

@@ -13,7 +13,7 @@ int day_of_year(int year, int month, int day)
 
 	if(year < 1752 || month > 12 || month < 1 || day < 1) { return -1; }
 
-	leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+	leap = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 	if(day > daytab[leap][month]) { return -1; } // day month pair OK?
 
 	for( i = 1; i < month; i++)
@@ -28,7 +28,7 @@ int month_day(int year, int yearday, int *pmonth, int *pday)
 
 	if(year < 1752) { return -1; }
 
-	leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;
+	leap = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);
 	if((leap && yearday > 366) || (!leap && yearday > 365)) { return -1; }
 
 	for(i = 1; yearday > daytab[leap][i]; i++)
@@ -49,7 +49,7 @@ int main()
 		printf("Day: %d\tMonth:%d\n", day, month);
 
 	int yearday, year = 2009;
-	int leap = year % 4 == 0 && year % 100 != 0 || year % 400 == 0;	
+	int leap = year % 4 == 0 && (year % 100 != 0 || year % 400 == 0);	
 
 	for(month = 1; month <= 12; ++month)
 	{

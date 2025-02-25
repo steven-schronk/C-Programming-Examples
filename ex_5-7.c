@@ -31,7 +31,7 @@ void print_sparse_array(char s[][MAXLEN])
 }
 
 /* From K&R Page 29 */
-int getline(char s[], int lim)
+int getline2(char s[], int lim)
 {
 	int c, i;
 	for (i = 0; i < lim - 1 && (c = getchar()) != EOF && c != '\n'; i++)
@@ -52,7 +52,7 @@ int readlines(char lines[][MAXLEN], int maxlines)
 {
 	int len, nlines = 0;
 
-	while((len = getline(lines[nlines], MAXLEN)) > 0)
+	while((len = getline2(lines[nlines], MAXLEN)) > 0)
 		if(nlines >= maxlines) // when buffer full, return
 			return -1;
 		else

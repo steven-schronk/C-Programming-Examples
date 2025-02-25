@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main()
+int main()
 {
 	int c, i, j, nwhite, nother, maxnum;
 	int ndigit[10];

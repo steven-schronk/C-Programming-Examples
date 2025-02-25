@@ -49,6 +49,7 @@ int discard(char buffer[])
 	{
 		if(buffer[i] == '\n') { buffer[i] = '\0'; } /* convert newlines into NULL */
 	}
+	return 0;
 }
 
 /*
@@ -73,6 +74,7 @@ int reverse(char buffer[])
 		buffer[j] = ch;
 		--j;
 	}
+	return 0;
 }
 
 /*
@@ -84,7 +86,7 @@ check along the way that the input has not run out
 do this until we reach a newline and then terminate with NULL
 
 */
-int getline(char buffer[], int limit)
+int getline2(char buffer[], int limit)
 {
 	int i;
 	char c;
@@ -104,7 +106,7 @@ int main()
 {
 	char buffer[MAXLEN];
 
-	while(getline(buffer, sizeof buffer) > 0)
+	while(getline2(buffer, sizeof buffer) > 0)
 	{
 		// printf("getline\n");	
 		discard(buffer);

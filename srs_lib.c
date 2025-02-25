@@ -86,3 +86,5 @@ int itob(int n, char s[], int b)
         return 1;
 }
 
+// This dummy call added to get build makefile to work
+int main() {}

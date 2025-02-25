@@ -2,7 +2,7 @@
 
 int temp_conv(int c);
 
-main()
+int main()
 {
 
 	int i;

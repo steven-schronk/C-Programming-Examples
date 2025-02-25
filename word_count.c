@@ -3,7 +3,7 @@
 #define IN 1
 #define OUT 0
 
-main()
+int main()
 {
 	int c, nl, nw, nc, state;
 

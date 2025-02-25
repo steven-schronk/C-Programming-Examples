@@ -44,7 +44,7 @@ int readbuffer(char *buffer)
 int printline(char *buffer)
 {
 	int endfound = 1;
-	char c, i;
+	unsigned char c, i;
 	for(i = 0; i < MAX; ++i)
 		putchar(buffer[i]);
 

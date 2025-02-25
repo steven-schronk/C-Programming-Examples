@@ -1,6 +1,6 @@
 #include <stdio.h>
 
-main()
+int main()
 {
 	int c, i, nwhite, nother;
 	int ndigit[10];
@@ -21,4 +21,5 @@ main()
 	for(i = 0; i < 10; ++i)
 		printf(" %d", ndigit[i]);
 	printf(", whitespace = %d, other = %d\n", nwhite, nother);
+	return 0;
 }

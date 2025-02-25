@@ -1,13 +1,12 @@
 #include <stdio.h>
 #include <limits.h>
 
-main()
+int main()
 {
-       int c, i, j, nwhite, nother, maxnum;
+       int c, i, j, maxnum;
         int ndigit[CHAR_MAX] = {0};
 
         maxnum = 0;
-        nwhite = nother = 0;
 
         for(i = 0; i < 10; i++)
                 ndigit[i] = 0;
@@ -17,8 +16,9 @@ main()
 
         /* print out histogram */
         for(i = 0; i <= CHAR_MAX; ++i) // find maximim count to determine graph height
+	{
                 if(ndigit[i] > maxnum) { maxnum = ndigit[i]; }
-
+	}
         for(i = 0; i < maxnum; ++i) // one row for each instance of number
         {
                 printf("\n");
@@ -26,7 +26,9 @@ main()
                 for(j = 0; j <= CHAR_MAX; ++j) // one column for each number
                 {
                         if(ndigit[j] > 0) // skip chars not represented in file
+			{
                                 if(ndigit[j] >= maxnum-i) { putchar('*'); } else { putchar(' '); }
+			}
                 }
         }
 
@@ -38,4 +40,5 @@ main()
         printf("\n\t ");
         for (i = 0; i <= CHAR_MAX; ++i) { if(ndigit[i] > 0) { printf("%d",  i-(10*(i/10))); } }
         printf("\n");
+	return 0;
 }

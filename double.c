@@ -3,7 +3,7 @@
 void doubleData( float x, float y);
 void doubleDataByAddress( float *x, float *y);
 
-main()
+int main()
 {
 
   float x = 10.0;

@@ -12,7 +12,7 @@ void error(const char *err)
         exit(EXIT_FAILURE);
 }
 
-int getline(char s[], int limit)
+int getline2(char s[], int limit)
 {
 	int i, c;
 	for(i = 0; i < limit - 1 && (c = getchar()) != EOF && c != '\n'; i++)
@@ -54,7 +54,7 @@ int main(int argc, char *argv[])
 
 	int current_line = 0;
 	do {
-		getline(buffer, sizeof buffer); // get line and store in buffer
+		getline2(buffer, sizeof buffer); // get line and store in buffer
 		if(!feof(stdin))
 		{
 			if(buff[current_line])

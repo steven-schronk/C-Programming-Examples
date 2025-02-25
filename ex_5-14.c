@@ -9,9 +9,9 @@
 int readlines(char *lineprt[], int nlines);
 void writelines(char *lineprt[], int nlines);
 void new_qsort(void *lineptr[], int left, int right, int (*comp)(void *, void*));
-int numcmp(char *, char *);
+int numcmp(const char *, const char *);
 void swap(void *v[], int i, int j);
-int getline(char s[], int lim);
+int getline2(char s[], int lim);
 char *alloc(int n);
 
 char *lineptr[MAXLINES]; // pointers to next lines
@@ -23,7 +23,7 @@ static char *allocp = allocbuf;
 Get chars ony by one from stdin.  Load them into array of chars within lim.
 
 */
-int getline(char s[], int lim)
+int getline2(char s[], int lim)
 {
 	int c, i;
 	i = 0;
@@ -65,7 +65,7 @@ void swap(void *v[], int i, int j)
 Compare two strings numerically.
 
 */
-int numcmp(char *s1, char *s2)
+int numcmp(const char *s1, const char *s2)
 {
 	double v1, v2;
 	v1 = atof(s1);
@@ -93,7 +93,7 @@ int readlines(char *lineprt[], int maxlines)
 	char *p, line[MAXLEN];
 	
 	nlines = 0;
-	while((len = getline(line, MAXLEN)) > 0)
+	while((len = getline2(line, MAXLEN)) > 0)
 	{
 		if(nlines >= maxlines || (p = alloc(len)) == NULL)
 		{
@@ -151,7 +151,7 @@ int main(int argc, char *argv[])
 		numeric = 1;
 	if((nlines = readlines(lineptr, MAXLINES)) >= 0)
 	{
-		new_qsort((void **) lineptr, 0, nlines-1, (int(*)(void *,void *))(numeric ? numcmp : strcmp));
+		new_qsort((void **) lineptr, 0, nlines-1, (int(*)(void *,void *))(numeric ? &numcmp : &strcmp));
 		writelines(lineptr, nlines);
 		return 0;
 	} else {

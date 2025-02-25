@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 
 /* finds las occurence of char t in string s */
 int strindex(char s[], char t)
