@@ -1,5 +1,5 @@
 CC = gcc
-CFLAGS = -Wall -Werror
+CFLAGS = -Wall -Werror -g
 LIBS = -lm
 SOURCES = $(wildcard *.c)
 EXECUTABLES = $(SOURCES:.c=)
