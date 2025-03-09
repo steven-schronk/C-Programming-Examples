@@ -2,7 +2,7 @@
 
 int main()
 {
-	int h,	// half dollars
+	int x,	// half dollars
 	q,	// quarters
 	n,	// nickels
 	p,	// pennies
@@ -10,7 +10,7 @@ int main()
 
 	printf("Calculates value of change.\n");
 	printf("Half Dollars: ");
-	scanf("%d", &h);
+	scanf("%d", &x);
 	printf("Quarters: ");
 	scanf("%d", &q);
 	printf("Nickels: ");
@@ -18,7 +18,7 @@ int main()
 	printf("Pennies: ");
 	scanf("%d", &p);
 
-	printf("Half Dollars: %d\n", h);
+	printf("Half .. Dollars: %d\n", x);
 	printf("Quarters: %d\n", q);
 	printf("Nickels: %d\n", n);
 	printf("Pennies: %d\n", p);
